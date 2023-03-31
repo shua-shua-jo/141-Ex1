@@ -18,11 +18,9 @@ if __name__ == "__main__":
     accept_states={"q1","q2"}
   )
   
-  # print(M1a)
-  # for input_states in ["01010101","1100010101","0101001","01","10"]:
-  #   print(M1a.accepts(input_states))
+  print(M1a)
   
-  # M1a.render_diagram(filename="M1a")
+  M1a.render_diagram(filename="M1a")
   
   # T1.1 b: Set of all binary strings starting and ending with 101.
   M1b = DFA(
@@ -41,9 +39,9 @@ if __name__ == "__main__":
     accept_states={"q3"}
   )
   
-  # print(M1b)
+  print(M1b)
     
-  # M1b.render_diagram(filename="M1b")
+  M1b.render_diagram(filename="M1b")
   
   #T1.2 a: Set of all binary strings that contain neither the substrings 01 nor 10.
   M2a = DFA(
@@ -60,10 +58,12 @@ if __name__ == "__main__":
     accept_states={"q3","q4"}
   )
   
-  # M2a_comp = DFA_Complement(M2a)
-  # print(M2a_comp)
-  # for input_string in ["10000001","101011001","10111","01","11","10"]:
-  #   print(M2a_comp.accepts(input_string))
+  M2a.render_diagram(filename="M2a")
+  
+  M2a_comp = DFA_Complement(M2a)
+  print(M2a_comp)
+  
+  M2a_comp.render_diagram(filename="M2a_comp")
   
   #T1.2 b: Set of all binary strings that do not contain exactly two 0’s.
   M2b = DFA(
@@ -79,14 +79,13 @@ if __name__ == "__main__":
     accept_states={"q2"}
   )
   
-  # M2b_comp = DFA_Complement(M2b)
-  # print(M2b_comp)
-  # for input_string in ["10000001","1111001","1010111","00","001","1000"]:
-  #   print(M2b_comp.accepts(input_string))
+  M2b.render_diagram(filename="M2b")
+  
+  M2b_comp = DFA_Complement(M2b)
+  print(M2b_comp)
     
-  # print(M_complement)
-  # for input_string in ["100", "111", "110"]:
-  #   print(M_complement.__repr__() + " accepts " + input_string + "? " + M_complement.accepts(input_string))
+  M2b_comp.render_diagram(filename="M2b_comp")
+  
     
   # debugging
   A1 = DFA(
@@ -111,5 +110,5 @@ if __name__ == "__main__":
     alphabet={"0", "1", "x"}
   )
   
-  M_intersection = DFA_Intersection(A1, A2)
-  print(M_intersection)  
+  # M_intersection = DFA_Intersection(A1, A2)
+  # print(M_intersection)  
