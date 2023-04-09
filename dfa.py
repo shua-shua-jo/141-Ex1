@@ -40,7 +40,7 @@ class DFA():
     """
     self.states = set(states)
     self.alphabet = set(alphabet)
-    self.transition = dict(transition)
+    self.transition = transition
     self.start_state = start_state
     self.accept_states = set(accept_states)
   
@@ -92,7 +92,7 @@ class DFA():
     string = "state, symbol -> state"
     for state in self.transition:
       state_transitions = self.transition[state]
-      for symbol in self.alphabet:
+      for symbol in state_transitions:
         string += "\n\t" + str(state) + " , " + symbol + " -> " + str(state_transitions[symbol])
     return string
   
@@ -224,15 +224,16 @@ class DFA():
       filename: str = None,
       format_type: str = "png",
       path: str = None,
+      title: str = None,
       *,
       view=False,
       cleanup: bool = True,
       horizontal: bool = True,
       reverse_orientation: bool = False,
-      fig_size: tuple = (12, 12),
+      fig_size: tuple = (64, 64),
       font_size: float = 14.0,
       arrow_size: float = 0.85,
-      state_seperation: float = 0.5,
+      state_seperation: float = 1.0,
   ) -> Digraph:
       """
       Generates the graph associated with the given DFA.
@@ -268,6 +269,12 @@ class DFA():
           size=fig_size,
           ranksep=state_seperation,
       )
+      if title is not None:
+          graph.attr(
+            label=title,
+            labelloc="top",
+            labeljust="center",
+            )
       if horizontal:
           graph.attr(rankdir="LR")
       if reverse_orientation:
