@@ -1,4 +1,11 @@
 """
+CMSC 141 X Exercise 1
+Name: Elijah Joshua DL. Abello
+      Sean Thomas C. Vizconde
+Date: 17 April 2023
+"""
+
+"""
 CS 141 Python Module for Deterministic Finite Automata (DFA)
 """
 

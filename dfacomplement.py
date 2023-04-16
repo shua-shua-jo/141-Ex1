@@ -1,3 +1,10 @@
+"""
+CMSC 141 X Exercise 1
+Name: Elijah Joshua DL. Abello
+      Sean Thomas C. Vizconde
+Date: 17 April 2023
+"""
+
 from dfa import DFA
 
 def DFA_Complement(M):
