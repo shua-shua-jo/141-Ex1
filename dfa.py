@@ -230,7 +230,7 @@ class DFA():
       cleanup: bool = True,
       horizontal: bool = True,
       reverse_orientation: bool = False,
-      fig_size: tuple = (64, 64),
+      fig_size: tuple = (1024, 1024),
       font_size: float = 14.0,
       arrow_size: float = 0.85,
       state_seperation: float = 1.0,
@@ -267,6 +267,7 @@ class DFA():
       graph = Digraph(strict=False)
       graph.attr(
           size=fig_size,
+          dpi="300",
           ranksep=state_seperation,
       )
       if title is not None:

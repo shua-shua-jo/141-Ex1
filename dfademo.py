@@ -130,6 +130,7 @@ if __name__ == "__main__":
   La_inter_minimized = DFA_Minimize(La_inter)
   La_inter_minimized.render_diagram(filename="La_inter_minimize", path="Item 1.3 graphs/a", title="Minimized version of T1.3a")
   
+  print(La_inter_minimized)
   #T1.3 b: The set of all binary strings that having even length and an odd number of 1’s.
 
   L1b = DFA(
@@ -167,5 +168,8 @@ if __name__ == "__main__":
   # Lb_inter_stripped = DFA_Strip(Lb_inter)
   # Lb_inter_stripped.render_diagram(filename="Lb_inter_stripped", path="Item 1.3 graphs/b", title="Stripped version of T1.3b")
   
-  Lb_inter_minimized = DFA_Strip(Lb_inter)
+  Lb_inter_minimized = DFA_Minimize(Lb_inter)
   Lb_inter_minimized.render_diagram(filename="Lb_inter_minimized", path="Item 1.3 graphs/b", title="Minimized version of T1.3b")
+  
+  print(Lb_inter_minimized)
+  
