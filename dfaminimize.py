@@ -1,3 +1,10 @@
+"""
+CMSC 141 C Exercise 1
+Name: Elijah Joshua DL. Abello
+      Sean Thomas C. Vizconde
+Date: 17 April 2023
+"""
+
 from collections import defaultdict
 from itertools import product
 import copy 
