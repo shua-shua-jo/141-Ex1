@@ -149,7 +149,7 @@ if __name__ == "__main__":
       "q2": {"0": "q1", "1": "q1"}  
     },
     start_state="q0",
-    accept_states={"qo","q2"}    
+    accept_states={"q2","q0"}    
   )
   
   L1b.render_diagram(filename="L1b", path="Item 1.3 graphs/b", title="The set of all binary strings that having even length.")
