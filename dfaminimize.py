@@ -79,9 +79,6 @@ def DFA_Minimize(M):
 
   Parameter:
     M (DFA): Deterministic Finite Automata to minimize.
-
-  Returns:
-    The minimized DFA.
     
   Attributes:
     states : set
@@ -94,6 +91,9 @@ def DFA_Minimize(M):
       Initial state and an element of states
     accept_states : set
       Accepting or final states which is a subset of states
+  
+  Returns:
+    The minimal DFA for some DFA M. That is, the DFA with the fewest possible states that recognizes the same language as M.
   """
   
   """
@@ -145,7 +145,7 @@ def DFA_Minimize(M):
           G[r][q] = 1
 
   """
-  Initial update
+  Initial update since do while loops are not natively supported on Python
   """
   update()
 
@@ -176,6 +176,7 @@ def DFA_Minimize(M):
   """
   qe : str
     equivalence class of q casted as a string since it needs to be used as a key for dictionaries. A state q is always indistinguishable from itself. 
+		Can be implemented more concisely as a tuple but is defined as a string for ease of operations on it versus tuples
   """
   qe = ""
 
@@ -216,7 +217,7 @@ def DFA_Minimize(M):
     d : defaultdict
     value : str
 
-  Given the set of k-v pairs in d such that value == v, returns the first instance of the key of v if it exists
+  Given the set of k-v pairs in d such that value == v, returns the first instance of the key of v if it exists.
   """
   def retrieve_key(d, value):
     keys = [k for k, v in d.items() if v == value]
@@ -225,7 +226,7 @@ def DFA_Minimize(M):
     return None
 
   """
-  Iterate over the cartesian product of the set of states of the minimized DFA and the alphabet
+  Iterate over the cartesian product of the set of states of the minimized DFA and the alphabet.
   """
   for (qq, a) in product(Q_Prime, M.alphabet):
       """
@@ -235,7 +236,10 @@ def DFA_Minimize(M):
       
       """
 			Builds the transition function for the minimized DFA. Maps 
-			D_Prime[qq][a] to the equivalence class of self.transition[q][a] for each state in Q_Prime 
+			D_Prime[qq][a] to the equivalence class of self.transition[q][a] for each state in Q_Prime
+   
+      We need to retrieve the key from the equivalence class of q since in the instance that we collapse states into a single state, 
+			we cannot use this collapsed state as a key for the original transition function since this collapsed state does not exist in it 
 			"""
       D_Prime[qq].update({a : equiv_class[M.transition[q][a]]})
 
